@@ -1,0 +1,33 @@
+module seven_segment_display(
+    input wire [3:0] digit,
+    output reg [6:0] seg
+);
+
+    localparam [6:0]
+        ZERO  = 7'b0111111,
+        ONE   = 7'b0000110,
+        TWO   = 7'b1011011,
+        THREE = 7'b1001111,
+        FOUR  = 7'b1100110,
+        FIVE  = 7'b1101101,
+        SIX   = 7'b1111101,
+        SEVEN = 7'b0000111,
+        EIGHT = 7'b1111111,
+        NINE  = 7'b1101111;
+
+    always @(*) begin
+        case (digit)
+            4'd0: seg = ZERO;
+            4'd1: seg = ONE;
+            4'd2: seg = TWO;
+            4'd3: seg = THREE;
+            4'd4: seg = FOUR;
+            4'd5: seg = FIVE;
+            4'd6: seg = SIX;
+            4'd7: seg = SEVEN;
+            4'd8: seg = EIGHT;
+            4'd9: seg = NINE;
+            default: seg = 7'b0000000; // Off
+        endcase
+    end
+endmodule
