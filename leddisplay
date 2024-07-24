@@ -1,0 +1,8 @@
+module led_display(
+    input [5:0] seconds,
+    output [5:0] leds
+);
+
+    assign leds = seconds;
+
+endmodule
